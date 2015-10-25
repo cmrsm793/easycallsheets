@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  projectname: MyString
+  gendatetime: 2015-10-25
+  shootdatetime: 2015-10-25
+  message: MyText
+  notes: MyText
+  address: MyString
+  isarchived: false
+  sent: false
+  saved: false
+
+two:
+  projectname: MyString
+  gendatetime: 2015-10-25
+  shootdatetime: 2015-10-25
+  message: MyText
+  notes: MyText
+  address: MyString
+  isarchived: false
+  sent: false
+  saved: false
