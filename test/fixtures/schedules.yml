@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time: 2015-10-26
+  location: MyString
+  description: MyText
+  project_id: 1
+
+two:
+  time: 2015-10-26
+  location: MyString
+  description: MyText
+  project_id: 1

@@ -1,0 +1,129 @@
+Easy Call Sheets
+
+Here is the mockup https://invis.io/454O6GEET
+
+############################################
+Paypal IPN is a requrinment 
+
+https://developer.paypal.com/docs/classic/products/instant-payment-notification/
+	Links to Sample Code:
+		
+		http://stackoverflow.com/questions/14316426/is-there-a-paypal-ipn-code-sample-for-ruby-on-rails
+
+		http://railscasts.com/episodes/142-paypal-notifications
+
+		http://awesomeprogrammer.com/blog/2013/02/04/paypal-ipn-madness-with-ruby-on-rails/
+
+		http://www.perfectline.co/blog/2010/07/correct-paypal-ipn-handling-with-rails/
+
+		https://github.com/dwilkie/paypal
+
+		http://blog.enbake.com/paypal-standard-integration-with-ror-application-integrating-ipn/
+
+##########################################
+Data Models - Easy Call Sheet Database
+
+	Project Table - ###Created###
+	belongs_to :user ###complete###
+	has_many :casts ###complete###
+	has_many :crews ###complete###
+	has_many :schedules ###complete###
+	has_many :producers ###complete###
+
+		Project_Id :integer
+		Project_Name :string
+		General_DateTime :date
+		Shoot_DateTime :date
+		director: :string
+		Message :text
+		Notes :text
+		Address :string
+		Is_Archived :boolean
+		Sent :boolean
+		Saved :boolean
+		user_id :integer FK
+
+
+	cast Table - ###Created###
+	belongs_to :project ###complete###
+	belongs_to :schedule ###complete###
+		Cast_Id :integer
+		Name :text
+		Character :text
+		Phone_Number :text
+		email :text
+		calltime :date
+		project_id :integer FK
+		schedule_id :integer Foreign Key
+		
+
+	Crewe Table - ###Created###
+	belongs_to: :project ###complete###
+	belongs_to: :schedule ###complete###
+
+		CreweId :integer
+		First Name :text
+		Last Name :text
+		Role :text
+		PhoneNumber :text
+		email :text
+		calltime :date
+		Project_ID :integer Foreign Key
+		Schedule_ID :integer Foreign Key
+		ItemID : integer Foreign Key
+
+	Producer Table - ###Created###
+	belongs_to :project ###complete###
+		First Name :text
+		Last Name :text
+		ProjectID :integer Foreign Key
+
+
+	Schedule Table - ###Created###
+	belongs_to :project ###complete###
+	has_many :casts
+	has_many :crews
+
+		schedule_id :integer
+		Time :date
+		Location :text
+		description :text
+		Project_ID :integer Foreign Key
+
+
+	User Table - ###Created###
+	  has_many :projects
+		User_id :integer
+		Name :text
+		Email :text
+		Phone :text
+		Password: :text
+		Time Format :Date
+		Country :text
+
+
+	***Many to Many***
+	https://www.youtube.com/watch?v=ddz_7uVpqOE&list=WL&index=131
+
+
+	***Attatchment Table***
+	https://matt.berther.io/2007/10/19/uploading-files-to-a-database-using-rails/
+
+	http://www.therailsway.com/2009/3/16/storing-your-files/
+
+	https://github.com/thoughtbot/paperclip
+
+	http://www.tutorialspoint.com/ruby-on-rails/rails-file-uploading.htm
+
+	http://railscasts.com/episodes/253-carrierwave-file-uploads
+
+	https://richonrails.com/articles/allowing-file-uploads-with-carrierwave
+
+
+
+Tasks:
+	Create Projects Section
+	***Left off on projects controller
+
+
+
