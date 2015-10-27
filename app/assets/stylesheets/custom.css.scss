@@ -1,0 +1,53 @@
+$navbar-default-bg: #3a97d4;
+$light-blue: #3a97d4;
+$navbar-default-color: $light-blue;
+$navbar-height: 90px;
+$btn-default-bg: #EDF3F7;
+$navbar-margin-bottom:0;
+
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+.title{
+  height:100px;
+  background-color:#FFFFFF;
+  padding-top:30px;
+  padding-left:20px;
+  margin-top:none;
+  color:#61A4C9;
+}
+.no_call_sheets{
+  text-align: center;
+  margin-top: 200px;
+}
+.no_call_sheets h3{
+  display:inline;
+}
+
+#call_sheet_btn{
+  margin-top:20px;
+}
+
+body{
+  background-color:#EDF3F7;
+  font-family:"Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+
+.projects_list{
+  height:90px;
+  background-color:#FFFFFF;
+  border:1px solid #D3D4D5;
+  margin-top:3%;
+}
+
+.project_gen_date{
+  float:left;
+  padding-left:3%;
+}
+
+.project_name{
+  margin-left:25%;
+  position:absolute;
+
+}
