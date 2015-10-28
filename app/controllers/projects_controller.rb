@@ -3,7 +3,6 @@ class ProjectsController < ApplicationController
   
   def index
     @projects = Project.paginate(page: params[:page], per_page: 4)
-    
   end
   
   def show
@@ -16,7 +15,8 @@ class ProjectsController < ApplicationController
   
   def create
     @projects = Project.new(project_params)
-    #@projects.producer = Producer.find(2)
+    @projects.user = User.find(current_user)
+    @producer = Producer.new(producer_params)
     
     if @projects.save
       flash[:success] = "Your project was created sucessfully"
@@ -47,7 +47,12 @@ class ProjectsController < ApplicationController
   private
   
     def project_params
-      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :message, :notes, :address, :isarchived, :sent, :saved    )
+      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :message, :notes, :address, :isarchived, :sent, :saved, :user_id )
     end
+    
+    def producer_params
+      params.require(:producer).permit(:name)
+    end
+    
   
 end
