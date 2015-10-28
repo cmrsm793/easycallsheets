@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151027173713) do
+ActiveRecord::Schema.define(version: 20151028002750) do
 
   create_table "casts", force: :cascade do |t|
     t.string   "name"
@@ -44,6 +44,16 @@ ActiveRecord::Schema.define(version: 20151027173713) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "profiles", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.datetime "time_format"
+    t.string   "country"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "user_id"
+  end
+
   create_table "projects", force: :cascade do |t|
     t.string   "projectname"
     t.date     "gendatetime"
@@ -57,6 +67,7 @@ ActiveRecord::Schema.define(version: 20151027173713) do
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
     t.integer  "user_id"
+    t.string   "director"
   end
 
   create_table "schedules", force: :cascade do |t|
@@ -69,10 +80,6 @@ ActiveRecord::Schema.define(version: 20151027173713) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
-    t.datetime "time_format"
-    t.string   "country"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

@@ -1,5 +1,5 @@
 class ProjectsController < ApplicationController
-  before_action :authenticate_user!
+  #before_action :authenticate_user!
   
   def index
     @projects = Project.paginate(page: params[:page], per_page: 4)
@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
   
   def create
     @projects = Project.new(project_params)
-    #@recipe.chef = Chef.find(2)
+    #@projects.producer = Producer.find(2)
     
     if @projects.save
       flash[:success] = "Your project was created sucessfully"
@@ -25,6 +25,9 @@ class ProjectsController < ApplicationController
     else
       render :new
     end
+  end
+  
+  def recipients
   end
   
   def edit
@@ -44,7 +47,7 @@ class ProjectsController < ApplicationController
   private
   
     def project_params
-      params.require(:project).permit(:projectname, :projectname, :message, :notes, :address, :isarchived, :sent, :saved    )
+      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :message, :notes, :address, :isarchived, :sent, :saved    )
     end
   
 end

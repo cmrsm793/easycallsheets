@@ -2,9 +2,17 @@ Rails.application.routes.draw do
   
   root 'pages#home'
   
+  
+  
   get '/home', to: 'pages#home'
   
-  get '/projects', to: 'projects#index'
+  resources :projects
+  
+ # get '/projects', to: 'projects#index'
+  
+  #get '/projects', to: 'projects#new', as: 'new_project'
+  
+  get '/projects', to: 'projects#recipients', as: 'recipients'
   
   devise_for :users
 

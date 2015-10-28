@@ -6,6 +6,7 @@ $btn-default-bg: #EDF3F7;
 $navbar-margin-bottom:0;
 
 
+
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -49,5 +50,9 @@ body{
 .project_name{
   margin-left:25%;
   position:absolute;
+
+}
+
+.top_bar{
 
 }

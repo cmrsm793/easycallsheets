@@ -19,6 +19,13 @@ https://developer.paypal.com/docs/classic/products/instant-payment-notification/
 		https://github.com/dwilkie/paypal
 
 		http://blog.enbake.com/paypal-standard-integration-with-ror-application-integrating-ipn/
+		
+		http://www.gotealeaf.com/blog/basic-paypal-checkout-processing-in-rails
+		
+		https://github.com/fnando/paypal-recurring
+		
+		https://www.youtube.com/watch?v=YCKX4PnuYP4
+		
 
 ##########################################
 Data Models - Easy Call Sheet Database
@@ -163,3 +170,15 @@ Some setup you must do manually if you haven't yet:
   5. You can copy Devise views (for customization) to your app by running:
 
        rails g devise:views
+       
+       
+Devise Paypal?
+	http://stackoverflow.com/questions/12815548/paypal-recurring-gem-trial-period
+
+	http://stackoverflow.com/questions/9525589/user-registration-with-devise-and-paypal
+	
+# subscription #
+	https://github.com/RailsApps/rails-recurly-subscription-saas
+	
+# User Authorization #
+	CanCan

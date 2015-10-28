@@ -1,0 +1,39 @@
+<%= render 'shared/errors', obj: @projects %>
+  <div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+      <%= form_for(@projects, html: { multipart: true }) do |f| %>
+        <%= f.label 'Call Sheet Title:' %>
+        <%= f.text_field :projectname %>
+        
+        <%= f.label 'Address:' %>
+        <%= f.text_field :address %>
+        
+        <%= f.label 'Gen. Crew Call Date and Time:' %>
+        <%= f.text_field :gendatetime %>
+        
+        <%= f.label 'Same as Gen. Call Time?' %>
+        
+        
+        <%= f.label 'Shoot Call Date and Time:'%>
+        <%= f.text_field :shootdatetime %>
+        
+        <%= f.label 'Producer:' %>
+       
+        
+        <%= f.label 'Director:' %>
+        <%= f.text_field :director %>
+        
+        <%= f.label 'Message to Recipients (optional):' %>
+        <%= f.text_field :message %>
+        
+        <%= f.label 'Notes:' %>
+        <%= f.text_area :notes, rows: 10 %>
+        
+        
+        
+        <%= f.submit(@projects.new_record? ? 'NEXT TO ADD RECIPIENTS' : 'recipients', class: "btn btn-success") %>
+      <% end %>
+    </div>
+  </div>
+  
+  
