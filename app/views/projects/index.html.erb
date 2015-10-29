@@ -1,21 +1,21 @@
 <%= render 'shared/top_bar'%>
 <%= render 'shared/page_title', title: "PROJECT LIST:" %>
 
-<%= will_paginate %>
-<% if @projects.count < 1 %>
+
+<% if @user.projects.count < 1 %>
 <div class="container">
   <div class="row">
       <div class="col-md-6 col-md-offset-3">
         <section class="no_call_sheets">
           <h3>LOOKS LIKE YOU DON'T HAVE ANY CALL SHEETS YET</h3>
           <h3>START SENDING CALL SHEETS BY CREATING ONE</h3>
-          <p id="call_sheet_btn"><%= link_to "CREATE NEW CALL SHEET", 'new.html.erb', class: "btn btn-default" %></p>
+          <p id="call_sheet_btn"><%= link_to "CREATE NEW CALL SHEET", new_project_path, class: "btn btn-default" %></p>
         </section>
       </div>
 </div>      
 <%end%>    
 <% else %>
-  <% @projects.each do |project| %>
+  <% @user.projects.each do |project| %>
 <div class="container">
   <div class="row">
     <div class="col-md-12 projects_list">
@@ -30,4 +30,3 @@
 
 <%= link_to "Recipients", new_project_path %>
 
-<%= will_paginate %>

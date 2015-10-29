@@ -5,4 +5,5 @@ class Project < ActiveRecord::Base
 	has_many :schedules
 	has_many :producers
 	validates :projectname, :address, presence: true
+	validates :user_id, presence: true
 end

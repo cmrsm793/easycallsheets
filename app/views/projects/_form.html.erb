@@ -1,8 +1,8 @@
-<%= render 'shared/errors', obj: @projects %>
+<%= render 'shared/errors', obj: @project %>
   <div class="row">
     <div class="well col-md-8 col-md-offset-2">
      
-      <%= form_for(@projects, html: { multipart: true }) do |f| %>
+      <%= form_for(@project, html: { multipart: true }) do |f| %>
       <div class="form-group"> 
         <%= f.label 'Call Sheet Title:' %>
         <%= f.text_field :projectname %>
@@ -14,17 +14,18 @@
         </div>
         
         <div class="form-group"> 
-        <%= f.label 'Gen. Crew Call Date and Time:' %>
-        <%= f.text_field :gendatetime %>
+        <%= f.label "Gen. Crew Call Date and Time:" %>
+        <%= f.datetime_field :gendatetime %>
         </div>
         
         <div class="form-group"> 
-        <%= f.label 'Same as Gen. Call Time?' %>
+        <label for="same_as_gen_time">Same as Gen. Time?</label>
+        <input id="same_as_gen_time" name="Same as Gen. Time?" type="checkbox" value="1" />
         </div>
         
         <div class="form-group"> 
         <%= f.label 'Shoot Call Date and Time:'%>
-        <%= f.text_field :shootdatetime %>
+        <%= f.datetime_field :shootdatetime %>
         </div>
         
         <div class="form-group"> 
@@ -49,8 +50,10 @@
         <%= f.text_area :notes, rows: 10 %>
         </div>
         
+        <%= f.hidden_field :user_id, :value => current_user %>
+        
         <div class="form-group"> 
-        <%= f.submit(@projects.new_record? ? 'NEXT TO ADD RECIPIENTS' : 'recipients', class: "btn btn-success") %>
+        <%= f.submit(@project.new_record? ? 'Create Project' : 'Error', class: "btn btn-success") %>
         </div>
       <% end %>
     </div>
