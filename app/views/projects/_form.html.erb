@@ -29,7 +29,7 @@
         </div>
         
         <div class="form-group"> 
-        <%= fields_for :producer do |producer| %>
+        <%= f.fields_for :producers do |producer| %>
         <%= producer.label 'Producer:' %>
         <%= producer.text_field :name %>
         <% end %>

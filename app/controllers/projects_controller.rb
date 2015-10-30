@@ -14,7 +14,6 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     
-   
   end
   
   def create
@@ -51,10 +50,8 @@ class ProjectsController < ApplicationController
   private
   
     def project_params
-      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :message, :notes, :address, :isarchived, :sent, :saved)
+      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :message, :notes, :address, :isarchived, :sent, :saved, projects_attributes: [ :name ])
     end
-    
-    
     
   
 end

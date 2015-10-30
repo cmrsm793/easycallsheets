@@ -16,6 +16,8 @@ gem 'will_paginate', '3.0.7'
 gem 'bootstrap-will_paginate', '0.0.10'
 gem 'bcrypt', '3.1.7'
 gem 'devise', '~> 3.5', '>= 3.5.2'
+gem 'twitter-bootstrap-rails'
+gem 'devise-bootstrap-views'
 
 
 group :development, :test do

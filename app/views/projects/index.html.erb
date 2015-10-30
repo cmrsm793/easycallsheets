@@ -20,7 +20,7 @@
   <div class="row">
     <div class="col-md-12 projects_list">
       <section>
-        <h3 class="project_gen_date"><%= project.gendatetime %></h3>
+        <h3 class="project_gen_date"><%= project.created_at.strftime('%B %d - %I:%M %p') %></h3>
         <h3 class="project_name"><%= project.projectname %></h3>
       </section>
     </div>
