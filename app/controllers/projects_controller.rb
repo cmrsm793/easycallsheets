@@ -13,6 +13,7 @@ class ProjectsController < ApplicationController
   
   def new
     @project = Project.new
+    @project.producers.build
     
   end
   
@@ -30,8 +31,11 @@ class ProjectsController < ApplicationController
     end
   end
   
-  def recipients
-  end
+  # def recipients
+  #   @project.casts.build
+  #   @project.crews.build
+    
+  # end
   
   def edit
     @project = Project.find(params[:id])
@@ -47,10 +51,15 @@ class ProjectsController < ApplicationController
     end
   end
   
+
+  
   private
   
     def project_params
-      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :message, :notes, :address, :isarchived, :sent, :saved, projects_attributes: [ :name ])
+      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :message, :notes, :address, :isarchived, :sent, :saved, 
+      producers_attributes: [ :name, :project_id ], 
+      casts_attributes: [ :name, :email, :character, :phone_number, :project_id],
+      crews_attributes: [ :name, :email, :role, :phone_number, :project_id])
     end
     
   

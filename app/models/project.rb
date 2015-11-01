@@ -5,6 +5,8 @@ class Project < ActiveRecord::Base
 	has_many :schedules
 	has_many :producers
 	accepts_nested_attributes_for :producers
+	accepts_nested_attributes_for :casts
+	accepts_nested_attributes_for :crews
 	validates :projectname, :address, presence: true
 	validates :user_id, presence: true
 end

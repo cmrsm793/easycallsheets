@@ -4,11 +4,17 @@ $navbar-default-color: $light-blue;
 $navbar-height: 90px;
 $btn-default-bg: #EDF3F7;
 $navbar-margin-bottom:0;
+$well-bg:#FFFFFF;
+$input-border:#B0EBFC;
+$input-color:#60676A;
+$btn-default-bg:#7DD5C9;
+$btn-default-color:#FFFFFF;
 
 
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import 'bootstrap-datetimepicker';
 
 .title{
   height:100px;
@@ -17,6 +23,8 @@ $navbar-margin-bottom:0;
   padding-left:20px;
   margin-top:none;
   color:#61A4C9;
+  margin-bottom:20px;
+  font-family:"Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
 }
 .no_call_sheets{
   text-align: center;
@@ -55,4 +63,75 @@ body{
 
 .top_bar{
 
+}
+
+#logo{
+  width: 279px;
+  height: 63px;
+}
+
+.recipients{
+  
+}
+
+.recipients hr{
+  color:#55D5FB;
+}
+
+.add_producer{
+  clear:left;
+  display:inline;
+}
+
+#address{
+  float:right;
+}
+
+#project_form{
+  
+}
+
+.float_left{
+  float:left;
+}
+
+.float_right{
+  float:right;
+}
+
+.block{
+  display:block;
+}
+
+#map{
+  width: 513px;
+  height: 356px;
+  float:right;
+}
+#map_street{
+  width: 513px;
+  height: 310px;
+}
+
+#notes{
+ 
+}
+
+#message{
+  width: 513px;
+  height: 400px;
+}
+
+#director{
+  width: 513px;
+  height: 94px;
+}
+
+#producer{
+  width: 679px;
+  height: 95px;
+}
+
+hr{
+  color:#62D8FB;
 }

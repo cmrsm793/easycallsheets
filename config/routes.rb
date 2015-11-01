@@ -8,6 +8,8 @@ Rails.application.routes.draw do
   
   resources :projects
   
+
+  
  # get '/projects', to: 'projects#index'
   
   #get '/projects', to: 'projects#new', as: 'new_project'

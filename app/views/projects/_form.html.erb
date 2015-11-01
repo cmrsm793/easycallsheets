@@ -1,62 +1,130 @@
 <%= render 'shared/errors', obj: @project %>
-  <div class="row">
-    <div class="well col-md-8 col-md-offset-2">
+
+  
+ <div class="container">
+    <div class="well col-md-12">
      
-      <%= form_for(@project, html: { multipart: true }) do |f| %>
-      <div class="form-group"> 
-        <%= f.label 'Call Sheet Title:' %>
-        <%= f.text_field :projectname %>
-      </div>  
-        
-        <div class="form-group"> 
-        <%= f.label 'Address:' %>
-        <%= f.text_field :address %>
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.label "Gen. Crew Call Date and Time:" %>
-        <%= f.datetime_field :gendatetime %>
-        </div>
-        
-        <div class="form-group"> 
-        <label for="same_as_gen_time">Same as Gen. Time?</label>
-        <input id="same_as_gen_time" name="Same as Gen. Time?" type="checkbox" value="1" />
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.label 'Shoot Call Date and Time:'%>
-        <%= f.datetime_field :shootdatetime %>
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.fields_for :producers do |producer| %>
-        <%= producer.label 'Producer:' %>
-        <%= producer.text_field :name %>
-        <% end %>
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.label 'Director:' %>
-        <%= f.text_field :director %>
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.label 'Message to Recipients (optional):' %>
-        <%= f.text_field :message %>
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.label 'Notes:' %>
-        <%= f.text_area :notes, rows: 10 %>
-        </div>
-        
-        <%= f.hidden_field :user_id, :value => current_user %>
-        
-        <div class="form-group"> 
-        <%= f.submit(@project.new_record? ? 'Create Project' : 'Error', class: "btn btn-success") %>
-        </div>
+        <%= form_for(@project, html: { multipart: true }) do |f| %>
+  
+                <div class="form-group col-sm-4"> 
+                  <%= f.label 'Call Sheet Title:' %>
+                  <%= f.text_field :projectname, class: "form-control" %>
+                </div>
+             
+                
+            
+                  <div class="form-group col-sm-5" id="address"> 
+                  <%= f.label 'Address:' %>
+                  <%= f.text_field :address, class: "form-control", :placeholder => "Enter an address" %>
+                  </div>
+                  <div class="form-group" id="map"></div>
+              
+            
+             <div class="col-sm-4">
+                 <%= f.label "General Crew Call Date/Time:" %>
+                 </div>
+              <div class="form-group col-sm-4 input-group date" id="datetimepicker1">
+             
+              <%= f.datetime_field :gendatetime, class: "form-control" %>
+              <span class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </span>
+              </div>
+            
+          
+          <div class="form-group col-sm-4"> 
+          <label for="same_as_gen_time">Same as Gen. Time?</label>
+          <input id="same_as_gen_time" name="Same as Gen. Time?" type="checkbox" value="1" />
+          </div>
+          
+          <div class="col-sm-4">
+          <%= f.label 'Shoot Call Date/Time:'%>
+          </div>
+          <div class="form-group col-sm-4 input-group date" id="datetimepicker2"> 
+            
+            <%= f.datetime_field :shootdatetime, class: "form-control" %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-calendar"></span>
+            </span>
+          </div>
+         
+         
+          
+            <%= f.fields_for :producers do |producer| %>
+            <div class="col-sm-4">
+            <%= producer.label 'Producer:' %>
+            </div>
+            <div class="form-group col-sm-4 input-group"> 
+            <%= producer.text_field :name, class: "form-control" %>
+            <span class="input-group-addon">
+              <span class="glyphicon glyphicon-plus"></span>
+            </span>
+            <% end %>
+            </div>
+          
+            
+         
+       
+            <div class="form-group col-sm-4"> 
+            <%= f.label 'Director:' %>
+            <%= f.text_field :director, class: "form-control" %>
+            </div>
+          
+          
+            <div class="form-group col-sm-4"> 
+            <%= f.label 'Message to Recipients (optional):' %>
+            <%= f.text_area :message, size: "10x10", class: "form-control" %>
+            </div>
+         
+          
+            
+            <div class="form-group float_right"> 
+            <%= f.label 'Notes:' %>
+            <%= f.text_area :notes, size: "50x10", class: "form-control" %>
+            </div>
+            
+          
+          <%= f.hidden_field :user_id, :value => current_user %>
+          
+          <div class="form-group col-sm-4"> 
+          <%= f.submit(@project.new_record? ? 'Create Project' : 'Error', class: "btn btn-default") %>
+          </div>
       <% end %>
+      </div>
     </div>
-  </div>
+
+
+ <script type="text/javascript">
+            $(function () {
+                  $('#datetimepicker1').datetimepicker();
+              });
+  </script>
+  <script type="text/javascript">
+            $(function () {
+                  $('#datetimepicker2').datetimepicker();
+              });
+  </script>
+  <script type="text/javascript">
+    // instantiate the addressPicker suggestion engine (based on bloodhound)
+    $(document).on('ready page:load', function () {
+      var addressPicker = new AddressPicker({
+      map: {
+        id: '#map'
+      }
+      });
+      
+      // instantiate the typeahead UI
+      $('#project_address').typeahead(null, {
+        displayKey: 'description',
+        source: addressPicker.ttAdapter()
+      });
+      
+      // Bind some event to update map on autocomplete selection
+      $('#project_address').bind('typeahead:selected', addressPicker.updateMap);
+      $('#project_address').bind('typeahead:cursorchanged', addressPicker.updateMap);
+    });
+  </script>
+ 
+  
   
   
