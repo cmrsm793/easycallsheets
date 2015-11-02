@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
     
     if @project.save
       flash[:success] = "Your project was created sucessfully"
-      redirect_to recipients_path
+      redirect_to project_casts_path
       
     else
       render :new

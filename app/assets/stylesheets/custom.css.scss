@@ -16,6 +16,11 @@ $btn-default-color:#FFFFFF;
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
 
+h1{
+  font-family:"Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+  color:#61A4C9;
+  
+}
 .title{
   height:100px;
   background-color:#FFFFFF;
@@ -133,5 +138,14 @@ body{
 }
 
 hr{
+  background-color:#62D8FB;
+  border-color:#62D8FB;
   color:#62D8FB;
+  border:none;
+  height:2px;
+  margin-top:1px;
+}
+
+.test{
+  color:#55D5FB;
 }

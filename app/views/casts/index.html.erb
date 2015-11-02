@@ -1,65 +1,41 @@
-<%= render 'shared/errors', obj: @project %>
-  <div class="row">
-    <div class="well col-md-8 col-md-offset-2">
-     
-      <%= form_for(@project, html: { multipart: true }) do |f| %>
-      <div class="form-group"> 
-        <%= f.label 'Call Sheet Title:' %>
-        <%= f.text_field :projectname %>
-      </div>  
-        
-        <div class="form-group"> 
-        <%= f.label 'Address:' %>
-        <%= f.text_field :address %>
+<%= render 'shared/top_bar'%>
+<%= render 'shared/page_title', title: "CREATE CALL SHEET:" %>
+
+<div class="container">
+    <div class="well col-md-12">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <button type="button" class="btn btn-default btn-lg btn-block">+ CAST / CREW</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="sections">
+            <h1>CAST:</h1>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-3">
+          <p>Name:</p>
+        </div>
+        <div class="col-md-3">
+          <p>Character:</p>
+        </div>
+        <div class="col-md-3">
+          <p>Email:</p>
+        </div>
+        <div class="col-md-3">
+          <p>Phone Number:</p>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr/>
+          </div>
         </div>
         
-        <div class="form-group"> 
-        <%= f.label "Gen. Crew Call Date and Time:" %>
-        <%= f.datetime_field :gendatetime %>
-        </div>
-        
-        <div class="form-group"> 
-        <label for="same_as_gen_time">Same as Gen. Time?</label>
-        <input id="same_as_gen_time" name="Same as Gen. Time?" type="checkbox" value="1" />
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.label 'Shoot Call Date and Time:'%>
-        <%= f.datetime_field :shootdatetime %>
-        </div>
+        <%= render 'casts' %>
         
         
-        <!--<div class="form-group"> -->
-        <!--<%= f.fields_for :producers do |producer| %>-->
-        <!--<%= producer.label 'Producer:' %>-->
-        <!--<%= producer.text_field :name %>-->
-        <!--<%= producer.hidden_field :project_id %>-->
-        <!--<% end %>-->
-        <!--</div>-->
-       
-        
-        <div class="form-group"> 
-        <%= f.label 'Director:' %>
-        <%= f.text_field :director %>
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.label 'Message to Recipients (optional):' %>
-        <%= f.text_field :message %>
-        </div>
-        
-        <div class="form-group"> 
-        <%= f.label 'Notes:' %>
-        <%= f.text_area :notes, rows: 10 %>
-        </div>
-        
-        <%= f.hidden_field :user_id, :value => current_user %>
-        
-        <div class="form-group"> 
-        <%= f.submit(@project.new_record? ? 'Create Project' : 'Error', class: "btn btn-success") %>
-        </div>
-      <% end %>
-    </div>
-  </div>
-  
-  
+      </div>
+</div>
