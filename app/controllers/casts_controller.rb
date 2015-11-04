@@ -1,9 +1,10 @@
 class CastsController < ApplicationController
   
   def index
-    @casts = Cast.all
-    #@casts = @project.id
     #@project = Project.find(params[:id])
+    @casts = Cast.where(project_id: params[:project_id])
+    #@casts = Cast.all
+    
   end
   
   def new
@@ -24,7 +25,7 @@ class CastsController < ApplicationController
   
   private
   
-  def project_params
+  def cast_params
       params.require(:cast).permit(:name, :email, :character, :phone_number, :project_id)
   end
   
