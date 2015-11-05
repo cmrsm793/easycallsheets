@@ -5,7 +5,7 @@
     <div class="well col-md-12">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <button type="button" class="btn btn-default btn-lg btn-block">+ CAST / CREW</button>
+          <%= link_to "+ ADD CAST / CREW", new_project_cast_path, class: "btn btn-default btn-lg btn-block", :remote => true, "data-toggle" => "modal", "data-target" => "#cast_modal" %>
         </div>
       </div>
       <div class="row">
@@ -38,6 +38,36 @@
         
         <%= render 'casts' %>
         
+        <div class="row">
+        <div class="col-md-4">
+          <p class="sections">
+            <h1>Crew:</h1>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3">
+            <p>Name:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Role:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Email:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Phone Number:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr/>
+          </div>
+        </div>
+        
+        <%= render 'crews' %>
         
       </div>
 </div>
+
+<div id="cast_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>

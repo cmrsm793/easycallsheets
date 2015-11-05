@@ -1,19 +1,19 @@
 
-<%= @crew.each do |crew| %>
+<% @crews.each do |crew| %>
          
-            <div class="row">
-              <div class="col-md-3">
-                <p><%= crew.name %></p>
-              </div>
-              <div class="col-md-3">
-                <p><%= crew.role %></p>
-              </div>
-              <div class="col-md-3">
-                <p><%= crew.email %></p>
-              </div>
-              <div class="col-md-3">
-                <p><%= crew.phone_number %></p>
-              </div>
-              <hr>
-              
-            </div>
+    <div class="row">
+      <div class="col-md-3">
+        <p><%= crew.name %></p>
+      </div>
+      <div class="col-md-3">
+        <p><%= crew.role %></p>
+      </div>
+      <div class="col-md-3">
+        <p><%= crew.email %></p>
+      </div>
+      <div class="col-md-3">
+        <p><%= crew.phone_number %></p>
+      </div>
+      <hr>
+    </div>
+<% end %>

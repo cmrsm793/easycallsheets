@@ -1,17 +1,45 @@
-<!--= simple_form_for(@user, html: { class: 'form-horizontal' }) do |form|-->
-      
-      <!--<%= simple_form_for(:casts, html: { class: 'form-horizontal' })  do |f| %>-->
-      <!--  <%= f.input :name %>-->
-      <!--  <%= f.input :character %>-->
-      <!--  <%= f.input :email %>-->
-      <!--  <%= f.input :phone_number %>-->
-      <!--  <%= f.button :submit %>-->
-      <!--<% end %>-->
-      
-      <!--<%= simple_form_for(:crews, html: { class: 'form-horizontal' })  do |f| %>-->
-      <!--  <%= f.input :name %>-->
-      <!--  <%= f.input :character %>-->
-      <!--  <%= f.input :email %>-->
-      <!--  <%= f.input :phone_number %>-->
-      <!--  <%= f.button :submit %>-->
-      <!--<% end %>-->
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3 id="myModalLabel">Modal header</h3>
+    </div>
+    
+        <%= form_for(@casts, remote: true, html: { multipart: true }) do |f| %>
+         <div class="modal-body">
+           <ul class="errors"></ul>
+          <div class="form-group col-sm-5"> 
+            <%= f.label 'Name:' %>
+            <%= f.text_field :name, class: "form-control" %>
+          </div>
+                
+            <div class="form-group col-sm-5"> 
+            <%= f.label 'Character:' %>
+            <%= f.text_field :character, class: "form-control"%>
+            </div>
+            
+            <div class="form-group col-sm-5"> 
+            <%= f.label 'Email:' %>
+            <%= f.email_field :email, class: "form-control"%>
+            </div>
+            
+            <div class="form-group col-sm-5"> 
+            <%= f.label 'Phone Number:' %>
+            <%= f.email_field :phone_number, class: "form-control"%>
+            </div>
+
+          </div>
+          <div class="modal-footer">
+          <div class="form-group col-sm-4"> 
+          <%= f.submit(@casts.new_record? ? 'Save AND ADD ANOTHER' : 'Error', class: "btn btn-default") %>
+          </div>
+          
+          <div class="form-group col-sm-4"> 
+          <%= f.submit(@casts.new_record? ? 'Finished' : 'Error', class: "btn btn-default") %>
+          </div>
+          
+      <% end %>
+        </div>
+      </div>
+          
+     
+ 

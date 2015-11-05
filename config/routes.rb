@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   resources :projects do
   
     resources :casts
+    resources :schedules
   end
   
 

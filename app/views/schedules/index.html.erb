@@ -1,0 +1,43 @@
+<%= render 'shared/top_bar'%>
+<%= render 'shared/page_title', title: "CREATE CALL SHEET:" %>
+
+<div class="container">
+    <div class="well col-md-12">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= link_to "+ ADD SCHEDULE ITEM", new_project_cast_path, class: "btn btn-default btn-lg btn-block", :remote => true, "data-toggle" => "modal", "data-target" => "#cast_modal" %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+          <p class="sections">
+            <h1>Schedule:</h1>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3">
+            <p>Time:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Location:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Cast:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Crew:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr/>
+          </div>
+        </div>
+        
+        <%= render 'form' %>
+ 
+      </div>
+</div>
+
+<div id="cast_modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"></div>
