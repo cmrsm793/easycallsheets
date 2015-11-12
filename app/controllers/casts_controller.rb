@@ -1,13 +1,16 @@
 class CastsController < ApplicationController
+  before_action :authenticate_user!
   
   def index
-    @casts = Cast.where(project_id: params[:project_id])
-    @crews = Crew.where(project_id: params[:project_id])
+    @project = Project.find(params[:project_id])
+    @casts = @project.casts
+    @crews = @project.crews
   end
   
   def new
-    @casts = Cast.new
-    @crews = Crew.new
+    @project = Project.find(params[:project_id])
+    @casts = @project.casts.new
+    #@crews = @project.crews.new
     
     respond_to do |format|
       format.html
@@ -16,15 +19,29 @@ class CastsController < ApplicationController
   end
   
   def create
-    @casts = Cast.new(cast_params)
-    @crews = Crew.new(crew_params)
+    @project = Project.find(params[:project_id])
+    @casts = @project.casts.create(cast_params)
+    #@crews = @project.crews.new.create(crew_params)
     
-    if @casts.save
-      flash[:success] = "Your cast member was added sucessfully"
-      #redirect_to project_casts_path(@project)
+    respond_to do |format|
+      format.html
+      format.js
+    
+      if @casts.save
+        flash[:success] = "Your cast member was added sucessfully"
+        #redirect_to project_casts_path(@project)
+        
+      else
+        render :new
+      end
       
-    else
-      render :new
+      # if @crews.save
+      #   flash[:success] = "Your crew member was added sucessfully"
+      #   redirect_to project_casts_path(@project)
+        
+      # else
+      #   render :new
+      # end
     end
   end
   
@@ -39,11 +56,11 @@ class CastsController < ApplicationController
   private
   
   def cast_params
-      params.require(:cast).permit(:name, :email, :character, :phone_number, :project_id)
+      params.require(:cast).permit(:name, :email, :character, :phone_number)
   end
   
   def crew_params
-      params.require(:crew).permit(:name, :email, :role, :phone_number, :project_id)
+      params.require(:crew).permit(:name, :email, :role, :phone_number)
   end
   
 end

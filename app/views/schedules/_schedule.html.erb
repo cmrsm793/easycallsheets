@@ -1,17 +1,29 @@
-
-<% @casts.each do |cast| %>
+<% @schedule.each do |schedule| %>
     <div class="row">
       <div class="col-md-3">
+        <p><%= schedule.time.strftime('%I:%M %p') %></p>
+      </div>
+      <div class="col-md-3">
+        <p><%= schedule.location %></p>
+      </div>
+      <div class="col-md-3">
+        <% @cast.each do |cast| %>
+        <% if cast.schedule_id == schedule.id %>
         <p><%= cast.name %></p>
+        <% end %>
+        <% end %>
       </div>
       <div class="col-md-3">
-        <p><%= cast.character %></p>
+        <% @crew.each do |crew| %>
+        <% if crew.schedule_id == schedule.id %>
+        <p><%= crew.name %></p>
+        <% end %>
+        <% end %>
       </div>
-      <div class="col-md-3">
-        <p><%= cast.email %></p>
-      </div>
-      <div class="col-md-3">
-        <p><%= cast.phone_number %></p>
+      <div class="row">
+        <div class="col-md-12">
+          <p>Description: <%= schedule.description %></p>
+        </div>
       </div>
     </div>
     <div class="row">
@@ -19,5 +31,6 @@
         <hr/>
       </div>
     </div>
-            
+
 <%end%>
+        

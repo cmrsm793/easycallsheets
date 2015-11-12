@@ -1,9 +1,13 @@
 <nav class="navbar navbar-default navbar-static-top">
-  <div class="container-fluid">
+  <div class="container-fullwidth">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">
         <img id="logo" alt="Logo" src="/assets/EasyCallSheets-Logo.png" />
       </a>
+    </div>
+    <div id="profile" class="float_right">
+        <p class="float_left" id="profile_name"><%= current_user.first_name %></p>
+        <span class="glyphicon glyphicon-menu-hamburger" id="profile_glyph" aria-hidden="true"></span>
     </div>
   </div>
 </nav>

@@ -9,6 +9,9 @@ $input-border:#B0EBFC;
 $input-color:#60676A;
 $btn-default-bg:#7DD5C9;
 $btn-default-color:#FFFFFF;
+$background: #EDF3F7;
+$darktext:#344E5E;
+
 
 
 
@@ -43,9 +46,78 @@ h1{
   margin-top:20px;
 }
 
-body{
+.archive{
+  margin-top:19px;
+  color:#770E0E;
+  font-weight:600;
+}
+
+.sent{
+  background-color: #00ff0c;
+  width: 220px;
+  height: 44px;
+  color:$darktext;
+  text-align: center;
+  vertical-align: middle;
+  position:absolute;
+  margin-left:60%;
+  margin-top:19px;
+}
+.sent p{
+  padding-top:6px;
+}
+
+.saved{
+  width: 220px;
+  height: 44px;
+  color:$darktext;
+  text-align: center;
+  vertical-align: middle;
+  position:absolute;
+  margin-left:60%;
+  margin-top:19px;
+}
+.saved p{
+  padding-top:6px;
+}
+
+.hide{
+  width: 220px;
+  height: 44px;
+  color:$darktext;
+  text-align: center;
+  vertical-align: middle;
+  position:absolute;
+  margin-left:60%;
+  margin-top:19px;
+  display:none;
+}
+.hide p{
+  padding-top:6px;
+}
+
+html, body{
   background-color:#EDF3F7;
   font-family:"Myriad Pro", "Gill Sans", "Gill Sans MT", Calibri, sans-serif;
+}
+#profile{
+  background-color: #757a80;
+  width: 275px;
+  height: 88px;
+  margin-right:0;
+}
+#profile_name{
+  padding-top:17px;
+  font-size:2em;
+  color:#ffffff;
+  padding-left:10px;
+}
+#profile_glyph{
+  color: #ffffff;
+  font-size:4em;
+  font-weight:normal;
+  float:right;
+  padding-top:17px;
 }
 
 .projects_list{
@@ -53,6 +125,7 @@ body{
   background-color:#FFFFFF;
   border:1px solid #D3D4D5;
   margin-top:3%;
+  border-radius: 5px 20px 5px;
 }
 
 .project_gen_date{
@@ -64,6 +137,10 @@ body{
   margin-left:35%;
   position:absolute;
 
+}
+.create_call_sheet{
+  clear:left;
+  margin-top:30px;
 }
 
 .top_bar{

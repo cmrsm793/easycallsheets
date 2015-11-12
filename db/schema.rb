@@ -11,30 +11,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151028002750) do
+ActiveRecord::Schema.define(version: 20151111041403) do
+
+  create_table "cast_projects", force: :cascade do |t|
+    t.integer "cast_id"
+    t.integer "project_id"
+  end
+
+  add_index "cast_projects", ["cast_id"], name: "index_cast_projects_on_cast_id"
+  add_index "cast_projects", ["project_id"], name: "index_cast_projects_on_project_id"
 
   create_table "casts", force: :cascade do |t|
     t.string   "name"
     t.string   "character"
     t.string   "phone_number"
     t.string   "email"
-    t.date     "call_time"
-    t.integer  "project_id"
+    t.datetime "call_time"
     t.integer  "schedule_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "notes"
   end
+
+  create_table "crew_projects", force: :cascade do |t|
+    t.integer "crew_id"
+    t.integer "project_id"
+  end
+
+  add_index "crew_projects", ["crew_id"], name: "index_crew_projects_on_crew_id"
+  add_index "crew_projects", ["project_id"], name: "index_crew_projects_on_project_id"
 
   create_table "crews", force: :cascade do |t|
     t.string   "name"
     t.string   "role"
     t.string   "phone_number"
     t.string   "email"
-    t.date     "call_time"
-    t.integer  "project_id"
+    t.datetime "call_time"
     t.integer  "schedule_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.text     "notes"
   end
 
   create_table "producers", force: :cascade do |t|
@@ -45,19 +61,20 @@ ActiveRecord::Schema.define(version: 20151028002750) do
   end
 
   create_table "profiles", force: :cascade do |t|
-    t.string   "name"
     t.string   "phone"
     t.datetime "time_format"
     t.string   "country"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   create_table "projects", force: :cascade do |t|
     t.string   "projectname"
-    t.date     "gendatetime"
-    t.date     "shootdatetime"
+    t.datetime "gendatetime"
+    t.datetime "shootdatetime"
     t.text     "message"
     t.text     "notes"
     t.string   "address"
@@ -71,7 +88,7 @@ ActiveRecord::Schema.define(version: 20151028002750) do
   end
 
   create_table "schedules", force: :cascade do |t|
-    t.date     "time"
+    t.datetime "time"
     t.string   "location"
     t.text     "description"
     t.integer  "project_id"
@@ -93,6 +110,8 @@ ActiveRecord::Schema.define(version: 20151028002750) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "custom_name"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

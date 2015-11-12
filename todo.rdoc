@@ -28,6 +28,16 @@ https://developer.paypal.com/docs/classic/products/instant-payment-notification/
 		
 
 ##########################################
+
+
+DOH********************
+
+create_table :assemblies_parts, id: false do |t|
+      t.belongs_to :assembly, index: true
+      t.belongs_to :part, index: true
+    end
+
+************************
 Data Models - Easy Call Sheet Database
 
 	Project Table - ###Created###
@@ -125,6 +135,10 @@ Data Models - Easy Call Sheet Database
 	http://railscasts.com/episodes/253-carrierwave-file-uploads
 
 	https://richonrails.com/articles/allowing-file-uploads-with-carrierwave
+	
+	**
+	https://railsforum.com/topic/61227-rails-4-undefined-method-relation-delegate-class-for-modelclass/
+	**
 
 
 

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   
+  
   root 'pages#home'
   
   
@@ -7,11 +8,10 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#home'
   
   resources :projects do
-  
     resources :casts
     resources :schedules
-  end
-  
+    end
+  resources :callsheets
 
   
  # get '/projects', to: 'projects#index'
@@ -20,8 +20,7 @@ Rails.application.routes.draw do
   
   get '/projects', to: 'projects#recipients', as: 'recipients'
   
-  devise_for :users
-
+  devise_for :users, :controllers => { registrations: 'users/registrations' }
    
    
    

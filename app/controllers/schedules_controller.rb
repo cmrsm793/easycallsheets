@@ -1,4 +1,5 @@
 class SchedulesController < ApplicationController
+  before_action :authenticate_user!
   
   def index
     @schedule = Schedule.where(project_id: params[:project_id])

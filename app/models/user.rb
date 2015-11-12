@@ -5,4 +5,5 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :projects
   has_one :profile
+  accepts_nested_attributes_for :profile
 end
