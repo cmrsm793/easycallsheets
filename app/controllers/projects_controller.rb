@@ -4,7 +4,6 @@ class ProjectsController < ApplicationController
   def index
     @project = Project.paginate(page: params[:page], per_page: 4)
     @user = User.find(current_user)
-
   end
   
   def show
@@ -14,7 +13,6 @@ class ProjectsController < ApplicationController
   def new
     @project = Project.new
     @project.producers.build
-    
   end
   
   def create
@@ -51,7 +49,6 @@ class ProjectsController < ApplicationController
     end
   end
   
-
   
   private
   
@@ -61,6 +58,8 @@ class ProjectsController < ApplicationController
       casts_attributes: [ :name, :email, :character, :phone_number, :project_id],
       crews_attributes: [ :name, :email, :role, :phone_number, :project_id])
     end
+    
+    
     
   
 end

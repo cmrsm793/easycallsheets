@@ -1,0 +1,200 @@
+<%= render 'shared/top_bar'%>
+<%= render 'shared/page_title', title: "CREATE CALL SHEET:" %>
+
+<div class="container">
+  <div class="well col-md-12">
+    <div class="row">
+        <div class="col-md-12">
+          <p>
+            <h1>PREVIEW AND SEND YOUR CALL SHEETS:</h1>
+          </p>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-6">
+        <p class="inline main-font light-blue">Title: </p>
+        <p class="inline main-font"><%= @project.projectname %></p>
+      </div>
+      <div class="col-md-6">
+        <p class="inline main-font light-blue">CALL SHEET FOR: </p>
+        <p class="inline main-font"><%= @project.gendatetime.strftime('%A, %b. %d, %Y') %></p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+          <hr/>
+        </div>
+    </div>
+    <div class="row">
+      <!--for each producer do-->
+      <div class="col-md-6">
+        <p>
+          <h3>Producer:</h3>
+        </p>
+      </div>
+      <div class="col-md-6">
+        <p class="inline main-font light-blue">GEN. CREW CALL TIME: </p>
+        <p class="inline main-font"><%= @project.gendatetime.strftime('%l:%M %P') %></p>
+        <p>
+          <p class="inline main-font light-blue">SHOOT CALL TIME: </p>
+          <p class="inline main-font"><%= @project.shootdatetime.strftime('%l:%M %P') %></p>
+        </p>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+        <p class="inline main-font light-blue">DIRECTOR: </p>
+        <p class="inline main-font"><%= @project.director %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+          <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        <p class="inline main-font light-blue">ADDRESS: </p>
+        <p class="inline main-font"><%= @project.address %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+          <div class="form-group" id="previewmap"></div>
+        </div>
+        <div class="col-md-6">
+          <p>
+            <h3>Google Street View</h3>
+          </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+          <hr/>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        <p class="inline main-font light-blue">MESSAGE TO RECIPIENTS: </p>
+        <p class="inline main-font"><%= @project.message %></p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+        <p class="inline main-font light-blue">NOTES ABOUT THE SHOOT: </p>
+        <p class="inline main-font"><%= @project.notes %></p>
+        </div>
+    </div>
+  </div>
+</div>
+
+<!--divide-->
+
+<div class="container">
+    <div class="well col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <p class="sections">
+            <h1>CAST:</h1>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3">
+            <p>Name:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Character:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Email:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Phone Number:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr/>
+          </div>
+        </div>
+        
+        
+        <%= render 'casts' %>
+        
+        <div class="row">
+        <div class="col-md-4">
+          <p class="sections">
+            <h1>Crew:</h1>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3">
+            <p>Name:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Role:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Email:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Phone Number:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr/>
+          </div>
+        </div>
+        
+        <%= render 'crews' %>
+        
+      </div>
+</div>
+
+<!--divide-->
+
+<div class="container">
+    <div class="well col-md-12">
+      <div class="row">
+        <div class="col-md-4">
+          <p class="sections">
+            <h1>Schedule:</h1>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+          <div class="col-md-3">
+            <p>Time:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Location:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Cast:</p>
+          </div>
+          <div class="col-md-3">
+            <p>Crew:</p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr/>
+          </div>
+        </div>
+        
+        <%= render 'schedule' %>
+ 
+      </div>
+</div>
+
+<!--divide-->
+
+<div class="container">
+  <div class="well col-md-12">
+    <p>All customized attached documents and notes will appear on the individule's call sheet.</p>
+  </div>
+</div>
+

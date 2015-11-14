@@ -7,15 +7,15 @@
         <p><%= schedule.location %></p>
       </div>
       <div class="col-md-3">
-        <% if schedule.casts.exists? %>
-        <% schedule.casts.each do |cast| %>
+        <% @cast.each do |cast| %>
+        <% if cast.schedule_id == schedule.id %>
         <p><%= cast.name %></p>
         <% end %>
         <% end %>
       </div>
       <div class="col-md-3">
-        <% if schedule.crews.exists? %>
-        <% schedule.crews.each do |crew| %>
+        <% @crew.each do |crew| %>
+        <% if crew.schedule_id == schedule.id %>
         <p><%= crew.name %></p>
         <% end %>
         <% end %>

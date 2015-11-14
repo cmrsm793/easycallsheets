@@ -25,10 +25,10 @@
     <div class="col-md-12 projects_list">
       <section>
         <div class="col-md-3">
-        <h3 class="project_gen_date"><%= project.gendatetime.strftime('%B %d - %I:%M %p') %></h3>
+        <h4 class="project_gen_date"><%= project.gendatetime.strftime('%B %d - %I:%M %p') %></h4>
         </div>
         <div class="col-md-3">
-        <h3 class="project_name"><%= project.projectname %></h3>
+        <h4 class="project_name"><%= project.projectname %></h4>
         </div>
         <% if project.sent %>
         <div class="col-md-3">
@@ -45,14 +45,21 @@
         <%end%>
         <div class="col-md-3">
         <div class="archive float_right">
-          <p><%= link_to image_tag("archive.png", :alt => "Archive", :class => ""), root_path %> ARCHIVE</p>
+          <p><%= link_to image_tag("archive.png", :alt => "Archive", :class => "") %> ARCHIVE</p>
+     
+          
         </div>
         </div>
       </section>
     </div>
   </div>
-    
 <%end%>
-</div>
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+      <%= link_to 'ARCHIVE', archives_path, class: 'btn btn-default archive-btn'%>
+    </div>
+  </div>
 
+</div>
+  
 

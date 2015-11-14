@@ -10,15 +10,19 @@ Rails.application.routes.draw do
   resources :projects do
     resources :casts
     resources :schedules
+    resources :previews, only: [:index]
+    resources :callsheets
+    member do
+      post 'state'
     end
-  resources :callsheets
+  end
+  
+  resources :archives, only: [:index]
 
   
  # get '/projects', to: 'projects#index'
   
   #get '/projects', to: 'projects#new', as: 'new_project'
-  
-  get '/projects', to: 'projects#recipients', as: 'recipients'
   
   devise_for :users, :controllers => { registrations: 'users/registrations' }
    

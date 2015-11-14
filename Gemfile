@@ -26,6 +26,7 @@ gem 'paypal-recurring'
 gem 'simple_form'
 
 
+
 group :development, :test do
   gem 'sqlite3'
   gem 'pry'

@@ -3,9 +3,8 @@ class SchedulesController < ApplicationController
   
   def index
     @schedule = Schedule.where(project_id: params[:project_id])
-    @cast = Cast.where(project_id: params[:project_id])
-    @crew = Crew.where(project_id: params[:project_id])
-   
+    # @cast = @schedule.casts
+    # @crew = @schedule.crews
   end
   
   def new
@@ -39,7 +38,8 @@ class SchedulesController < ApplicationController
   private
   
   def schedule_params
-      params.require(:schedule).permit(:time, :location, :cast, :crew, :description, :project_id)
+      params.require(:schedule).permit(:time, :location, :description, :project_id, casts_attributes: [ :name, :email, :character, :phone_number],
+      crews_attributes: [ :name, :email, :role, :phone_number])
   end
 
   

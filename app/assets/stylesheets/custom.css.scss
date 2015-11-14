@@ -11,6 +11,7 @@ $btn-default-bg:#7DD5C9;
 $btn-default-color:#FFFFFF;
 $background: #EDF3F7;
 $darktext:#344E5E;
+$titleblue:#4D99C3;
 
 
 
@@ -51,6 +52,30 @@ h1{
   color:#770E0E;
   font-weight:600;
 }
+
+.archive-btn{
+  margin-top:100px;
+  margin-left: 35%;
+  background-color:#757a80;
+  width:40%;
+  height:40%;
+}
+.archived{
+  background-color:#A00000;
+  width: 220px;
+  height: 44px;
+  color:#FFFFFF;
+  text-align: center;
+  vertical-align: middle;
+  position:absolute;
+  margin-left:60%;
+  margin-top:19px;
+}
+
+.archive p{
+  padding-top:6px;
+}
+
 
 .sent{
   background-color: #00ff0c;
@@ -103,7 +128,7 @@ html, body{
 #profile{
   background-color: #757a80;
   width: 275px;
-  height: 88px;
+  height: 91px;
   margin-right:0;
 }
 #profile_name{
@@ -131,12 +156,19 @@ html, body{
 .project_gen_date{
   float:left;
   padding-left:3%;
+  padding-top:19px;
+  color:$darktext;
+  font-size:1.5em;
+  font-weight:570;
 }
 
 .project_name{
   margin-left:35%;
   position:absolute;
-
+  padding-top:19px;
+  color:$darktext;
+  font-size:1.5em;
+  font-weight:570;
 }
 .create_call_sheet{
   clear:left;
@@ -150,6 +182,7 @@ html, body{
 #logo{
   width: 279px;
   height: 63px;
+  padding-bottom:10px;
 }
 
 .recipients{
@@ -223,6 +256,19 @@ hr{
   margin-top:1px;
 }
 
+.inline{
+  display:inline;
+}
+
+.light-blue{
+  color:$titleblue;
+}
+
+.main-font{
+  font-size:2em;
+}
+
 .test{
   color:#55D5FB;
 }
+

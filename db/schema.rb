@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151111041403) do
+ActiveRecord::Schema.define(version: 20151114001455) do
 
   create_table "cast_projects", force: :cascade do |t|
     t.integer "cast_id"
@@ -21,13 +21,20 @@ ActiveRecord::Schema.define(version: 20151111041403) do
   add_index "cast_projects", ["cast_id"], name: "index_cast_projects_on_cast_id"
   add_index "cast_projects", ["project_id"], name: "index_cast_projects_on_project_id"
 
+  create_table "cast_schedules", force: :cascade do |t|
+    t.integer "cast_id"
+    t.integer "schedule_id"
+  end
+
+  add_index "cast_schedules", ["cast_id"], name: "index_cast_schedules_on_cast_id"
+  add_index "cast_schedules", ["schedule_id"], name: "index_cast_schedules_on_schedule_id"
+
   create_table "casts", force: :cascade do |t|
     t.string   "name"
     t.string   "character"
     t.string   "phone_number"
     t.string   "email"
     t.datetime "call_time"
-    t.integer  "schedule_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.text     "notes"
@@ -41,13 +48,20 @@ ActiveRecord::Schema.define(version: 20151111041403) do
   add_index "crew_projects", ["crew_id"], name: "index_crew_projects_on_crew_id"
   add_index "crew_projects", ["project_id"], name: "index_crew_projects_on_project_id"
 
+  create_table "crew_schedules", force: :cascade do |t|
+    t.integer "crew_id"
+    t.integer "schedule_id"
+  end
+
+  add_index "crew_schedules", ["crew_id"], name: "index_crew_schedules_on_crew_id"
+  add_index "crew_schedules", ["schedule_id"], name: "index_crew_schedules_on_schedule_id"
+
   create_table "crews", force: :cascade do |t|
     t.string   "name"
     t.string   "role"
     t.string   "phone_number"
     t.string   "email"
     t.datetime "call_time"
-    t.integer  "schedule_id"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
     t.text     "notes"
@@ -78,11 +92,11 @@ ActiveRecord::Schema.define(version: 20151111041403) do
     t.text     "message"
     t.text     "notes"
     t.string   "address"
-    t.boolean  "isarchived"
-    t.boolean  "sent"
-    t.boolean  "saved"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.boolean  "isarchived",    default: false
+    t.boolean  "sent",          default: false
+    t.boolean  "saved",         default: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
     t.integer  "user_id"
     t.string   "director"
   end

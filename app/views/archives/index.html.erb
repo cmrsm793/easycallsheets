@@ -1,0 +1,48 @@
+<%= render 'shared/top_bar'%>
+<div>
+<%= render 'shared/page_title', title: "PROJECT ARCHIVES:" %>
+</div>
+
+<% if @user.projects.where(isarchived: true).count < 1 %>
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 col-md-offset-3">
+        <section class="no_call_sheets">
+          <h3>LOOKS LIKE YOU DON'T HAVE ANY ARCHIVED CALL SHEETS</h3>
+          <p><%= link_to "BACK TO PROJECT LIST", projects_path, class: "btn btn-default" %></p>
+        </section>
+      </div>
+</div>      
+<%end%>    
+<% else %>
+<div class="container">
+  <% @user.projects.where.not(isarchived: false).each do |project| %>
+
+  <div class="row">
+    <div class="col-md-12 projects_list">
+      <section>
+        <div class="col-md-3">
+        <h4 class="project_gen_date"><%= project.gendatetime.strftime('%B %d - %I:%M %p') %></h4>
+        </div>
+        <div class="col-md-3">
+        <h4 class="project_name"><%= project.projectname %></h4>
+        </div>
+        <div class="col-md-3">
+        <div class="archived"><p>ARCHIVED</p></div>
+        </div>
+        <div class="col-md-3">
+        <div class="archive float_right">
+          <p><%= link_to image_tag("archive.png", :alt => "Archive", :class => ""), root_path %> RESTORE</p>
+        </div>
+        </div>
+      </section>
+    </div>
+  </div>
+<%end%>
+<div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <%= link_to "BACK TO PROJECT LIST", projects_path, class: 'btn btn-default archive-btn'%>
+        </div>
+  </div>
+
+</div>
