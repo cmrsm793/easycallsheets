@@ -10,7 +10,7 @@ class CastsController < ApplicationController
   def new
     @project = Project.find(params[:project_id])
     @casts = @project.casts.new
-    #@crews = @project.crews.new
+    @crews = @project.crews.new
     
     respond_to do |format|
       format.html
@@ -21,7 +21,7 @@ class CastsController < ApplicationController
   def create
     @project = Project.find(params[:project_id])
     @casts = @project.casts.create(cast_params)
-    #@crews = @project.crews.new.create(crew_params)
+    @crews = @project.crews.create(crew_params)
     
     respond_to do |format|
       format.html
@@ -35,13 +35,13 @@ class CastsController < ApplicationController
         render :new
       end
       
-      # if @crews.save
-      #   flash[:success] = "Your crew member was added sucessfully"
-      #   redirect_to project_casts_path(@project)
+      if @crews.save
+        flash[:success] = "Your crew member was added sucessfully"
+        #redirect_to project_casts_path(@project)
         
-      # else
-      #   render :new
-      # end
+      else
+        render :new
+      end
     end
   end
   

@@ -20,7 +20,7 @@
 <% else %>
 <div class="container">
   <% @user.projects.each do |project| %>
-
+  <% if not project.isarchived? %>
   <div class="row">
     <div class="col-md-12 projects_list">
       <section>
@@ -46,13 +46,12 @@
         <div class="col-md-3">
         <div class="archive float_right">
           <p><%= link_to image_tag("archive.png", :alt => "Archive", :class => "") %> ARCHIVE</p>
-     
-          
         </div>
         </div>
       </section>
     </div>
   </div>
+  <%end%>
 <%end%>
   <div class="row">
     <div class="col-md-6 col-md-offset-3">

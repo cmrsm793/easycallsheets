@@ -196,3 +196,7 @@ Devise Paypal?
 	
 # User Authorization #
 	CanCan
+	
+	
+# checkboxes #
+http://millarian.com/rails/quick-tip-has_many-through-checkboxes/

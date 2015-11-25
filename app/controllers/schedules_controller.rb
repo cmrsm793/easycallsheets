@@ -2,13 +2,17 @@ class SchedulesController < ApplicationController
   before_action :authenticate_user!
   
   def index
-    @schedule = Schedule.where(project_id: params[:project_id])
-    # @cast = @schedule.casts
-    # @crew = @schedule.crews
+    # @schedule = Schedule.where(project_id: params[:project_id])
+    @project = Project.find(params[:project_id])
+    @schedule = @project.schedules
   end
   
   def new
-    @schedule = Schedule.new
+    @project = Project.find(params[:project_id])
+    @schedule = @project.schedules.new
+    @casts = @project.casts
+    @crews = @project.crews
+
     respond_to do |format|
       format.html
       format.js
@@ -16,7 +20,8 @@ class SchedulesController < ApplicationController
   end
   
   def create
-    @schedule = Schedule.new(schedule_params)
+    @project = Project.find(params[:project_id])
+    @schedule = @project.schedules.create(schedule_params)
     
     if @schedule.save
       flash[:success] = "Your schedule was created sucessfully"

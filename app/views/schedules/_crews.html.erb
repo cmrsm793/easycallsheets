@@ -1,0 +1,10 @@
+
+<% @crews.each do |crew| %>
+         
+      <div class="col-md-3">
+        <p>Crew:</p>
+        <%= check_box_tag(:name) %>
+        <%= label_tag(:name, crew.name) %>
+      </div>
+
+<% end %>

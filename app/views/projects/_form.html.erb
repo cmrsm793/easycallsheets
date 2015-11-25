@@ -15,8 +15,8 @@
             
                   <div class="form-group col-sm-5" id="address"> 
                   <%= f.label 'Address:' %>
-                  <%= f.text_field :address, class: "form-control", :placeholder => "Enter an address" %>
-                  </div>
+                  <%= f.text_field :address, class: "form-control", :placeholder => "Enter an address", :id => "add" %>
+                  </div> <input id="find" type="button" value="find" />
                   <div class="form-group" id="map"></div>
               
             
@@ -30,7 +30,7 @@
                 <span class="glyphicon glyphicon-calendar"></span>
               </span>
               </div>
-            
+              
           
           <div class="form-group col-sm-4"> 
           <label for="same_as_gen_time">Same as Gen. Time?</label>
@@ -76,9 +76,9 @@
             <%= f.text_area :message, size: "10x10", class: "form-control" %>
             </div>
          
-          
+            <div class="form-group" id="pano"></div>
             
-            <div class="form-group float_right"> 
+            <div class="form-group float_right" id="notes"> 
             <%= f.label 'Notes:' %>
             <%= f.text_area :notes, size: "50x10", class: "form-control" %>
             </div>
@@ -96,34 +96,63 @@
 
  <script type="text/javascript">
             $(function () {
-                  $('#datetimepicker1').datetimepicker();
+                  $('#datetimepicker1').datetimepicker({format: "YYYY-MM-DD hh:mm a"});
               });
   </script>
   <script type="text/javascript">
             $(function () {
-                  $('#datetimepicker2').datetimepicker();
+                  $('#datetimepicker2').datetimepicker({format: "YYYY-MM-DD hh:mm a"});
               });
   </script>
-  <script type="text/javascript">
-    // instantiate the addressPicker suggestion engine (based on bloodhound)
-    $(document).on('ready page:load', function () {
-      var addressPicker = new AddressPicker({
-      map: {
-        id: '#map'
-      }
+  <script>
+var panorama;
+function initialize() {
+  $('#pano').show();
+  panorama = new google.maps.StreetViewPanorama(
+      document.getElementById('pano'),
+      {
+        position: {lat: 37.869260, lng: -122.254811},
+        pov: {heading: 165, pitch: 0},
+        zoom: 1
       });
-      
-      // instantiate the typeahead UI
-      $('#project_address').typeahead(null, {
-        displayKey: 'description',
-        source: addressPicker.ttAdapter()
+}
+
+</script>
+    
+    <!--<script -->
+    <!--     src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=placeskey=AIzaSyDX5-pW-5Lc8kHiMYc3F4CSG-xeL14P81w&signed_in=true">-->
+    <!--</script>-->
+
+<script>
+      $(function(){
+        
+        var options = {
+          map: "#map"
+        };
+        
+        $("#add").geocomplete(options)
+          .bind("geocode:result", function(event, result){
+            $.log("Result: " + result.formatted_address);
+          })
+          .bind("geocode:error", function(event, status){
+            $.log("ERROR: " + status);
+          })
+          .bind("geocode:multiple", function(event, results){
+            $.log("Multiple: " + results.length + " results found");
+          });
+        
+        $("#find").click(function(){
+          $("#add").trigger("geocode");
+        });
+        
+        $("#examples a").click(function(){
+          $("#add").val($(this).text()).trigger("geocode");
+          return false;
+        });
+        
       });
-      
-      // Bind some event to update map on autocomplete selection
-      $('#project_address').bind('typeahead:selected', addressPicker.updateMap);
-      $('#project_address').bind('typeahead:cursorchanged', addressPicker.updateMap);
-    });
-  </script>
+</script>
+
  
   
   

@@ -153,6 +153,10 @@ html, body{
   border-radius: 5px 20px 5px;
 }
 
+.borders{
+  border-radius: 5px 20px 5px;
+}
+
 .project_gen_date{
   float:left;
   padding-left:3%;
@@ -223,12 +227,15 @@ html, body{
   height: 356px;
   float:right;
 }
-#map_street{
+#pano{
   width: 513px;
   height: 310px;
+  float:right;
+  display:none;
 }
 
 #notes{
+ clear:right;
  
 }
 

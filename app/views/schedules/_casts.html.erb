@@ -1,0 +1,12 @@
+
+<% @casts.each do |cast| %>
+      <div class="col-md-3">
+        <p>Cast:</p>
+        <%= check_box_tag(:name) %>
+        <%= label_tag(:name, cast.name) %>
+      </div>
+<%end%>
+        
+        
+            
+  

@@ -53,7 +53,7 @@ class ProjectsController < ApplicationController
   private
   
     def project_params
-      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :message, :notes, :address, :isarchived, :sent, :saved, 
+      params.require(:project).permit(:projectname, :gendatetime, :shootdatetime, :director, :message, :notes, :address, :isarchived, :sent, :saved, 
       producers_attributes: [ :name, :project_id ], 
       casts_attributes: [ :name, :email, :character, :phone_number, :project_id],
       crews_attributes: [ :name, :email, :role, :phone_number, :project_id])
